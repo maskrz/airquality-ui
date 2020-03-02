@@ -1,0 +1,117 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.main {
+  background-color: #F9F9F9;
+  color: #444444;
+}
+
+.header {
+  font-size: 50px;
+  padding: 10px 50px;
+  font-weight: 500;
+  border-bottom: solid 2px #464646;
+}
+
+.section {
+  margin-top: 10px;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 30px;
+}
+
+.stationRow {
+  text-align: center;
+  padding: 10px;
+}
+
+.progress.humidityProgressBar, .progress.temperatureProgressBar {
+  height: 25px;
+}
+
+.temperatureProgressBar-sm10 .progress-bar {
+  background-color: #0808c9;
+}
+
+.temperatureProgressBar-s0 .progress-bar {
+  background-color: #00b5d1;
+}
+
+.temperatureProgressBar-s10 .progress-bar {
+  background-color: #02d1c0;
+}
+
+.temperatureProgressBar-s15 .progress-bar {
+  background-color: #02d193;
+}
+
+.temperatureProgressBar-s20 .progress-bar {
+  background-color: #02d15c;
+}
+
+.temperatureProgressBar-s25 .progress-bar {
+  background-color: #8cd102;
+}
+
+.temperatureProgressBar-s30 .progress-bar {
+  background-color: #bcd102;
+}
+
+.temperatureProgressBar-s35 .progress-bar {
+  background-color: #d1a802;
+}
+
+.temperatureProgressBar-035 .progress-bar {
+  background-color: #d12f02;
+}
+
+.graphContainer {
+  margin-top:20px;
+}
+
+.datePickerText {
+  text-align: right;
+}
+
+.datePickerContainer {
+  margin-bottom: 20px;
+}
+
+.lineHandlerRow .lineHandlerInput {
+  width:100%;
+  height: 40px;
+}
+
+.lineHandlerRow {
+  margin: 10px;
+}
+
+.dropdown .dropdown-toggle {
+  width: 100%;
+}
+
+.lineHandlerRow .btn {
+  width: 100%;
+}
