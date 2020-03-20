@@ -13,16 +13,20 @@ class MeasurementsApp extends Component {
 		this.state= {
 			measurements: [],
 			temperature: null,
-			humidity: null
+			humidity: null,
+			stationStatuses:[]
 		}
 		this.getCurrent = this.getCurrent.bind(this);
+		this.updateStationStatus = this.updateStationStatus.bind(this);
 		this.getTemperatureCss = this.getTemperatureCss.bind(this);
 		this.getCurrentForStation = this.getCurrentForStation.bind(this);
 	}
 
 	componentDidMount() {
+		this.updateStationStatus();
 		this.getCurrent();
 		this.interval = setInterval(() => this.getCurrent(), 10000);
+		this.interval = setInterval(() => this.updateStationStatus(), 60000);
 	}
 
 
@@ -33,7 +37,6 @@ class MeasurementsApp extends Component {
 	getCurrent() {
 	    HardwareService.getAllStations().then(
 	      response => {
-
 	      	response.data.map(entry => {
 	      		let current = Object.assign([], this.state.measurements);
 	      		if (current[entry.id] == undefined) {
@@ -46,6 +49,23 @@ class MeasurementsApp extends Component {
 				});
 	      }
 	    )
+	}
+
+	updateStationStatus() {
+	console.log("updating");
+
+	HardwareService.getAllStations().then(
+    	      response => {
+    	      	response.data.map(entry => {
+    	      	HardwareService.getStatus(entry.id).then(response => {
+                                entry.status = response.data;
+                                let current = Object.assign([], this.state.stationStatuses);
+                            		current[entry.id] = response.data;
+
+                            	this.setState({stationStatuses : current});
+                            });
+    	      	})});
+
 	}
 
 	getCurrentForStation(entry) {
@@ -105,7 +125,7 @@ class MeasurementsApp extends Component {
 				<Container>
 	          		{this.state.measurements.map(value => 
 	          			<Row className="stationRow">
-	          				<Col lg={2} className="stationName">{value.station.name}</Col> 
+	          				<Col lg={2} className={"stationName-"+this.state.stationStatuses[value.station.id]}>{value.station.name} </Col>
 	          				<Col lg={1} >Temp.:</Col> 
 	          				<Col lg={4} >
 	          					<ProgressBar className={"temperatureProgressBar temperatureProgressBar"+this.getTemperatureCss(value.measurement.temperatureValue)} now={value.measurement.temperatureValue} max={value.measurement.temperatureValue} label={`${value.measurement.temperatureValue}`}/>
