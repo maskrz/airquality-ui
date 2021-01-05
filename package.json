@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "@wojtekmaj/react-daterange-picker": "^2.5.0",
     "@wojtekmaj/react-datetimerange-picker": "^2.4.0",
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "bootstrap-daterangepicker": "^3.0.5",
     "chart.js": "^2.9.3",
